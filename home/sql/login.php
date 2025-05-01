@@ -3,8 +3,8 @@
 //DB Connection
 include '../../library/db_conn.php';
 
-echo $email = $_REQUEST["email"];
-echo $password = $_REQUEST["password"];
+$email = $_REQUEST["email"];
+$password = $_REQUEST["password"];
 
 $check = 0;
 
