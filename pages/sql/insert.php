@@ -3,11 +3,12 @@
 //DB Connection
 include '../../library/db_conn.php';
 
-echo $first_name = $_REQUEST["first_name"];
-echo $last_name = $_REQUEST["last_name"];
-echo $department = $_REQUEST["department"];
-echo $email = $_REQUEST["email"];
-echo $phonenumber = $_REQUEST["phonenumber"];
+//get data from addemployee
+$first_name = $_REQUEST["first_name"];
+$last_name = $_REQUEST["last_name"];
+$department = $_REQUEST["department"];
+$email = $_REQUEST["email"];
+$phonenumber = $_REQUEST["phonenumber"];
 
 $sql = "INSERT INTO employee(first_name, last_name, department, email,phonenumber)
 VALUES ('$first_name', '$last_name', '$department', '$email', '$phonenumber');";
