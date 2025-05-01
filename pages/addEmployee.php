@@ -14,7 +14,7 @@
     <!-- files -->
 
     <h2 class="add-employee-title">Add Employee</h2>
-
+    <!-- Form -->
     <div class="container">
         <form class="row g-3" action="sql/insert.php" method="POST">
             <div class="col-md-6">
@@ -47,6 +47,7 @@
                 <button type="submit" class="btn btn-primary">Add New Employee</button>
             </div>
         </form>
+        <!-- Form end -->
     </div>
 
 </body>

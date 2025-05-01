@@ -35,6 +35,7 @@
                 </tr>
             </thead>
             <tbody>
+                <!-- Display table data -->
                 <?php
                 if ($result && $result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) {
@@ -61,7 +62,7 @@
                         echo "<td>" . $row['email'] . "</td>";
                         echo "<td>" . $row['phonenumber'] . "</td>";
                         echo '<td> 
-                                    <button type="button" class="btn btn-primary">Update</button> 
+                                    <a href="updateEmployee.php?id=' . $row['id'] . '" class="btn btn-primary">Update</a>
                                     <a href="sql/delete.php?id=' . $row['id'] . '" class="btn btn-danger" onclick="return confirm(\'Are you sure?\')">Delete</a>
                               </td>';
                         echo "</tr>";
@@ -70,6 +71,7 @@
                 ?>
             </tbody>
         </table>
+        <!-- Employee Table end-->
     </div>
 
 
