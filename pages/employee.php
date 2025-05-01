@@ -17,10 +17,10 @@
     <h2 class="employee-title">Employee</h2>
 
     <!-- Employee Table -->
-     <?php 
-     $sql = "SELECT * FROM employee";
-     $result = $conn->query($sql); 
-     ?>
+    <?php
+    $sql = "SELECT * FROM employee";
+    $result = $conn->query($sql);
+    ?>
     <div class="container">
         <table class="table">
             <thead>
@@ -35,35 +35,38 @@
                 </tr>
             </thead>
             <tbody>
-                <?php 
-                    if($result && $result->num_rows >0){
-                        while ($row = $result->fetch_assoc()){
-                            echo "<tr>";
+                <?php
+                if ($result && $result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        echo "<tr>";
 
-                            echo "<td>". $row['id'] . "</td>";
-                            echo "<td>". $row['first_name'] . "</td>";
-                            echo "<td>". $row['last_name'] . "</td>";
+                        echo "<td>" . $row['id'] . "</td>";
+                        echo "<td>" . $row['first_name'] . "</td>";
+                        echo "<td>" . $row['last_name'] . "</td>";
 
-                            $departmentName = '';
-                            if ($row['department'] == 1) {
-                                $departmentName = 'IT';
-                            } elseif ($row['department'] == 2) {
-                                $departmentName = 'HR';
-                            } elseif ($row['department'] == 3) {
-                                $departmentName = 'Finance';
-                            } elseif ($row['department'] == 4) {
-                                $departmentName = 'Marketing';
-                            } else {
-                                $departmentName = 'Unknown';
-                            }
-                            
-                            echo "<td>". $departmentName . "</td>";
-                            echo "<td>". $row['email'] . "</td>";
-                            echo "<td>". $row['phonenumber'] . "</td>";
-                            echo '<td> <button type="button" class="btn btn-secondary">Update</button> <button type="button" class="btn btn-danger">Delete</button> </td>';
-                            echo "</tr>";
+                        $departmentName = '';
+                        if ($row['department'] == 1) {
+                            $departmentName = 'IT';
+                        } elseif ($row['department'] == 2) {
+                            $departmentName = 'HR';
+                        } elseif ($row['department'] == 3) {
+                            $departmentName = 'Finance';
+                        } elseif ($row['department'] == 4) {
+                            $departmentName = 'Marketing';
+                        } else {
+                            $departmentName = 'Unknown';
                         }
+
+                        echo "<td>" . $departmentName . "</td>";
+                        echo "<td>" . $row['email'] . "</td>";
+                        echo "<td>" . $row['phonenumber'] . "</td>";
+                        echo '<td> 
+                                    <button type="button" class="btn btn-primary">Update</button> 
+                                    <a href="sql/delete.php?id=' . $row['id'] . '" class="btn btn-danger" onclick="return confirm(\'Are you sure?\')">Delete</a>
+                              </td>';
+                        echo "</tr>";
                     }
+                }
                 ?>
             </tbody>
         </table>
